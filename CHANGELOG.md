@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/cvillanueva94/Daily-Trends/compare/v0.0.2...v0.0.3) (2023-10-07)
+
+
+### Bug Fixes
+
+* :technologist: agregando logger ([e6e5e51](https://github.com/cvillanueva94/Daily-Trends/commit/e6e5e51edbcc3609aebd10bcfc6b441e480413b5))
+* :truck: renombrando controlador de feed ([56e3333](https://github.com/cvillanueva94/Daily-Trends/commit/56e33339761a73e2f894b140090118d25e2ae48c))
+* :truck: renombrando controlador de feed ([d60d566](https://github.com/cvillanueva94/Daily-Trends/commit/d60d566a5a3c43aef8bb33843d704f292de2d5b5))
+* adicion de modulo de news-paper ([33200d5](https://github.com/cvillanueva94/Daily-Trends/commit/33200d5f5f0b09066d7373b84bb1a34ccce73224))
+* ajuste en logger ([2308e6b](https://github.com/cvillanueva94/Daily-Trends/commit/2308e6bed4073de7c77a168b364c5261251dbb60))
+
 ### [0.0.2](https://github.com/cvillanueva94/Daily-Trends/compare/v0.0.1...v0.0.2) (2023-10-07)
 
 
