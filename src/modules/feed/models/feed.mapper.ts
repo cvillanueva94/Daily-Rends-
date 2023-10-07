@@ -5,7 +5,8 @@ import  FeedModel, { FeedDocument } from "./feed.document";
 
 export class FeedMapper implements ICRUDMapper<
   FeedDto,
-  FeedDocument
+  FeedDocument,
+  UpdateFeedDto
 > {
     /**
      * Converts a FeedDocument object to a FeedDto object.

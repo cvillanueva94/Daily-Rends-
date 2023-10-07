@@ -7,7 +7,7 @@ export const register = (router: Router): void => {
 
 	router.get('/feed', (req: Request, res: Response) => feedController.list(req, res));
 	router.post('/feed', (req: Request, res: Response) => feedController.create(req, res));
-	router.patch('/feed', (req: Request, res: Response) => feedController.update(req, res));
+	router.patch('/feed/:id', (req: Request, res: Response) => feedController.update(req, res));
 	router.get('/feed/:id', (req: Request, res: Response) => feedController.read(req, res));
 	router.delete('/feed/:id', (req: Request, res: Response) => feedController.delete(req, res));
 };
