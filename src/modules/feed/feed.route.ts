@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 
-import { FeedController } from './controllers/feed-controller';
+import { FeedController } from './controllers/feed.controller';
 
 export const register = (router: Router): void => {
 	const feedController: FeedController = new FeedController();
