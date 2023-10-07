@@ -23,6 +23,8 @@ export class ErrorHelper  {
         let result : GenericError;
         if (error.code === 11000) {
             result = new GenericError('The url is already in use', httpStatus.BAD_REQUEST, error.stack, error.name)
+        } else if(error._message.includes(' validation failed')) {
+            result = new GenericError(error.message, httpStatus.BAD_REQUEST, error.stack, error.name)
         } else {
             result = new GenericError('Internal Server Error', httpStatus.INTERNAL_SERVER_ERROR)
         }
