@@ -6,7 +6,7 @@ Dto extends ICRUDDto
 > {
 	list(pagination: PaginationDto): Promise< Dto[]> | Dto[];
 	create(dto: Dto): Promise<void> | void;
-	update(dto: Dto): Dto;
-	read(id: Number): Dto;
-	delete(id: Number): Boolean;
+	update(dto: Dto): Promise<Dto> | Dto;
+	read(id: String): Promise<Dto> | Dto;
+	delete(id: String): Promise<void> | void;
 }

@@ -12,7 +12,7 @@ export interface ICRUDRepository<T>{
 	 *
 	 * @param id
 	 */
-    findByPk(id: Number): Promise<T>;
+    findByPk(id: string): Promise<T | null>;
 
 	/**
 	 * Persist an entity in the repository, if an entity exists, update it.
@@ -33,7 +33,7 @@ export interface ICRUDRepository<T>{
 	/**
 	 * Delete an entity in the repository, if an entity exists, delete it.
 	 * @param {T} entity
-	 * @returns  {(Promise<void> | void)}
+	 * @returns  {(Promise<boolean> | boolean)}
 	 */
-	delete(id: Number): Promise<void> | void;
+	delete(id: string): Promise<boolean> | boolean;
 }
