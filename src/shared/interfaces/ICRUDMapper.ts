@@ -1,14 +1,13 @@
 import { ICRUDDocument } from "./ICRUDDocument"
 import { ICRUDDto } from "./ICRUDDto"
 
-export abstract class ICRUDMapper<
+export interface ICRUDMapper<
   D extends ICRUDDto,
   P extends ICRUDDocument,
+  UD extends ICRUDDto
 > {
-  DocumentToDto(pEntity: P): D {
-    throw new Error('Method not implemented.');
-  }
-  DtoToDocument(dEntity: D): Partial<P> {
-    throw new Error('Method not implemented.');
-  }
+
+  DocumentToDto(pEntity: P): D;
+  DtoToDocument(dEntity: D): Partial<P>
+  UpdateDtoToDocument(dEntity: UD, pEntity: P): Partial<P>
 }

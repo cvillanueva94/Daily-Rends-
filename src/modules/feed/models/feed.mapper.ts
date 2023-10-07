@@ -3,9 +3,10 @@ import { FeedDto } from "../dtos/feed.dto";
 import { UpdateFeedDto } from "../dtos/update-feed.dto";
 import  FeedModel, { FeedDocument } from "./feed.document";
 
-export class FeedMapper extends ICRUDMapper<
+export class FeedMapper implements ICRUDMapper<
   FeedDto,
-  FeedDocument
+  FeedDocument,
+  UpdateFeedDto
 > {
     /**
      * Converts a FeedDocument object to a FeedDto object.
@@ -13,7 +14,7 @@ export class FeedMapper extends ICRUDMapper<
      * @param {FeedDocument} feedDocument - The FeedDocument object to be converted.
      * @return {FeedDto} The converted FeedDto object.
      */
-    public static DocumentToDto(feedDocument: FeedDocument): FeedDto {
+    DocumentToDto(feedDocument: FeedDocument): FeedDto {
         const {id, title, description, url, createdAt, updatedAt} = feedDocument
         const dto = new FeedDto(title, description, url, id, createdAt, updatedAt);
         return dto
@@ -25,7 +26,7 @@ export class FeedMapper extends ICRUDMapper<
      * @param {FeedDto} feedDto - The FeedDto object to be converted.
      * @return {FeedDocument} The converted FeedDocument object.
      */
-    public static DtoToDocument(feedDto: FeedDto): FeedDocument {
+    DtoToDocument(feedDto: FeedDto): FeedDocument {
         const feed = new FeedModel()
         
         feed.title = feedDto.title;
@@ -42,14 +43,14 @@ export class FeedMapper extends ICRUDMapper<
      * @param {FeedDocument} originalFeed - The original FeedDocument object.
      * @return {FeedDocument} - The updated FeedDocument object.
      */
-    public static UpdateDtoToDocument(feedDto: UpdateFeedDto, originalFeed: FeedDocument): FeedDocument {
+    UpdateDtoToDocument(feedDto: UpdateFeedDto, originalFeed: FeedDocument): FeedDocument {
         const feed = new FeedModel()
         
+        feed.id = feedDto.id
         feed.title = feedDto.title || originalFeed.title;
         feed.description = feedDto.description || originalFeed.description;
         feed.url = feedDto.url || originalFeed.url;
 
-        return feed;
-        
+        return feed;   
     }
 }

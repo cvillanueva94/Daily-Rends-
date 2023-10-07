@@ -32,11 +32,7 @@ implements ICRUDRepository<ModelType> {
     }
 
     async update(t: ModelType): Promise<void> {
-        const model = await this.modelInstance.findById(t.id).exec();
-        if(!model){
-            throw new GenericError('Model not found', httpStatus.NOT_FOUND);
-        }
-        await t.save()
+        await this.modelInstance.findOneAndUpdate({_id: t.id}, t.toJSON()).exec();
     }
     async delete(id: string ): Promise<boolean> {
         const result = await this.modelInstance.deleteOne({_id: id}).exec();

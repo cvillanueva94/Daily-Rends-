@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 
 import { ICRUDController } from '../../../shared/interfaces/ICRUDController';
-import { FeedSercives } from '../services/feed.service';
+import { FeedService } from '../services/feed.service';
 import { PaginationDto } from '../../../shared/dtos/pagination.dto';
 import { UpdateFeedDto } from '../dtos/update-feed.dto';
 import { GenericError } from '../../../shared/errors/genericerror';
@@ -10,7 +10,7 @@ import { ErrorHelper } from '../../../shared/errors/errorhelper';
 
 
 export class FeedController implements ICRUDController {
-	feedServices: FeedSercives = new FeedSercives();
+	feedServices: FeedService = new FeedService();
 
 	async list(req: Request, res: Response): Promise<void> {
 		try {

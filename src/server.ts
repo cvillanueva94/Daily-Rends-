@@ -6,6 +6,7 @@ import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
 import httpStatus from 'http-status';
+import morganMiddleware from './config/morgan-middleware'
 
 import {connection} from './config/database';
 import { registerRoutes } from './routes';
@@ -19,6 +20,7 @@ export class Server {
 		this.port = port;
 		this.express = express();
 		this.express.use(json());
+		this.express.use(morganMiddleware)
 		this.express.use(urlencoded({ extended: true }));
 		this.express.use(helmet.xssFilter());
 		this.express.use(helmet.noSniff());
