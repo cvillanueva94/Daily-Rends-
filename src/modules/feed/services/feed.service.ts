@@ -10,29 +10,30 @@ import { GenericError } from '../../../shared/errors/genericerror';
 import httpStatus from 'http-status';
 
 export class FeedSercives implements ICRUDService<FeedDto> {
-	feedRepository: FeedRepository = new FeedRepository(feedModel);
+	private feedRepository: FeedRepository = new FeedRepository(feedModel);
+	private feedMapper: FeedMapper = new FeedMapper()
 
 	async list(pagination: PaginationDto): Promise<FeedDto[]> {
 		const objects: FeedDocument[] = await this.feedRepository.findAll(pagination);
-		const dtos: FeedDto[] = objects.map<FeedDto>(item => FeedMapper.DocumentToDto(item));
+		const dtos: FeedDto[] = objects.map<FeedDto>(item => this.feedMapper.DocumentToDto(item));
 		return dtos
 	}
 	async create(dto: FeedDto): Promise<void> {
-		const feed: FeedDocument = FeedMapper.DtoToDocument(dto);
+		const feed: FeedDocument = this.feedMapper.DtoToDocument(dto);
 		await this.feedRepository.save(feed);
 	}
 	async update(dto: UpdateFeedDto): Promise<FeedDto> {
 		const originalFeed: FeedDocument = await this.feedRepository.findByPk(dto.id)
-		const feed: FeedDocument = FeedMapper.UpdateDtoToDocument(dto, originalFeed);
+		const feed: FeedDocument = this.feedMapper.UpdateDtoToDocument(dto, originalFeed);
 		await this.feedRepository.update(feed);
 		const model: FeedDocument = await this.feedRepository.findByPk(feed.id)
-		const resultDTO: FeedDto = FeedMapper.DocumentToDto(model);
+		const resultDTO: FeedDto = this.feedMapper.DocumentToDto(model);
 		return resultDTO;	
 	}
 
 	async read(id: string): Promise<FeedDto> {
 		const model: FeedDocument = await this.feedRepository.findByPk(id)
-		const resultDTO: FeedDto = FeedMapper.DocumentToDto(model);
+		const resultDTO: FeedDto = this.feedMapper.DocumentToDto(model);
 		return resultDTO
 	}
 	async delete(id: string): Promise<void> {
