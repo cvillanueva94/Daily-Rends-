@@ -32,8 +32,7 @@ implements ICRUDRepository<ModelType> {
     }
 
     async update(t: ModelType): Promise<void> {
-        await this.findByPk(t.id)
-        await t.save()
+        await this.modelInstance.findOneAndUpdate({_id: t.id}, t.toJSON()).exec();
     }
     async delete(id: string ): Promise<boolean> {
         const result = await this.modelInstance.deleteOne({_id: id}).exec();

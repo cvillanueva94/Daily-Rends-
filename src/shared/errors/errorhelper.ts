@@ -1,3 +1,4 @@
+import Logger from '../../lib/logger'
 import httpStatus from "http-status";
 import { GenericError } from "./genericerror";
 
@@ -7,8 +8,14 @@ export class ErrorHelper  {
         if (error instanceof GenericError) {
             result = error 
         } else {
-            result = new GenericError('Internal Server Error', httpStatus.INTERNAL_SERVER_ERROR)
+            result = new GenericError('Internal Server Error', httpStatus.INTERNAL_SERVER_ERROR, error.stack, error.name)
         }
+        Logger.error({
+            message: result.message,
+            stack: result.stack,
+            statusCode: result.statusCode,
+            name: result.name
+        })
         return result
     }
 
