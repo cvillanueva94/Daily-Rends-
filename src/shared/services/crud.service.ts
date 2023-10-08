@@ -30,9 +30,10 @@ export class CrudServices<
 		const dtos: Dto[] = objects.map<Dto>(item => this.mapper.DocumentToDto(item));
 		return dtos
 	}
-	async create(dto: Dto): Promise<void> {
+	async create(dto: Dto): Promise<string> {
 		const feed: Entity = this.mapper.DtoToDocument(dto);
 		await this.repository.save(feed);
+		return feed.id
 	}
 	async update(dto: UpdateDto): Promise<Dto> {
 		const originalFeed: Entity = await this.repository.findByPk(dto.id)
