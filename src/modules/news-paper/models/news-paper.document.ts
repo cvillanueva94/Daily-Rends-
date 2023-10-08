@@ -16,7 +16,7 @@ export interface NewsPaperDocument extends ICRUDDocument {
   descriptionClass: string
 }
 
-const feedSchema = new Schema<NewsPaperDocument>({
+const NewsPaperSchema = new Schema<NewsPaperDocument>({
   name: { type: String, required: true },
   url: { type: String, required: true, unique: true },
   articleSection: { type: String, required: true },
@@ -29,4 +29,4 @@ const feedSchema = new Schema<NewsPaperDocument>({
 
 });
 
-export default model<NewsPaperDocument>('NewsPaper', feedSchema);
+export default model<NewsPaperDocument>('NewsPaper', NewsPaperSchema);
