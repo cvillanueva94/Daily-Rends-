@@ -15,8 +15,8 @@ export class FeedMapper implements ICRUDMapper<
      * @return {FeedDto} The converted FeedDto object.
      */
     DocumentToDto(feedDocument: FeedDocument): FeedDto {
-        const {id, title, description, url, createdAt, updatedAt} = feedDocument
-        const dto = new FeedDto(title, description, url, id, createdAt, updatedAt);
+        const {id, title, description, url, news, createdAt, updatedAt} = feedDocument
+        const dto = new FeedDto(title, description, url, news, id, createdAt, updatedAt);
         return dto
     }
 
@@ -32,6 +32,7 @@ export class FeedMapper implements ICRUDMapper<
         feed.title = feedDto.title;
         feed.description = feedDto.description;
         feed.url = feedDto.url;
+        feed.news = feedDto.news;
         return feed;
         
     }
@@ -50,6 +51,7 @@ export class FeedMapper implements ICRUDMapper<
         feed.title = feedDto.title || originalFeed.title;
         feed.description = feedDto.description || originalFeed.description;
         feed.url = feedDto.url || originalFeed.url;
+        feed.news = feedDto.news || originalFeed.news;
 
         return feed;   
     }
