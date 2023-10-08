@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/cvillanueva94/Daily-Trends/compare/v0.0.3...v0.0.4) (2023-10-08)
+
+
+### Bug Fixes
+
+* :bug: arreglo en crud service ([2fa5042](https://github.com/cvillanueva94/Daily-Trends/commit/2fa50427018bd23dc5ba43ae3f8b63d498f44960))
+* agregando comentarios de pendientes ([202d091](https://github.com/cvillanueva94/Daily-Trends/commit/202d091ebd27e4f6f56f092d939eee76ed5ac159))
+* agregando logica de scrapping ([3869f38](https://github.com/cvillanueva94/Daily-Trends/commit/3869f381fc5248da200609696505dae9db81429a))
+* agregando scraper service ([5434d63](https://github.com/cvillanueva94/Daily-Trends/commit/5434d6369b0b9e1a039fb16304ab2910cafa3401))
+* agregando tipo de error a helper de error ([68e2cd8](https://github.com/cvillanueva94/Daily-Trends/commit/68e2cd8471711e2e5fe28b33f5563d8017016a68))
+* ajustando modelo de news-paper al scraper ([2dec5ca](https://github.com/cvillanueva94/Daily-Trends/commit/2dec5ca5b93b9620df5734725b349cbe7972eb7f))
+* ajustes en el shared ([16ca33c](https://github.com/cvillanueva94/Daily-Trends/commit/16ca33c3ed5fa9f4ee22e11dcf2927f2723f11d4))
+* ajustes en la ruta my-feed ([b2ca5b9](https://github.com/cvillanueva94/Daily-Trends/commit/b2ca5b99e2c95db1139d0e5f889c7938b841a909))
+* trabajando con las fechas en los modelos ([6dd30d3](https://github.com/cvillanueva94/Daily-Trends/commit/6dd30d35fa63435c73be51dad5f076bdb2cf0055))
+* trabajos en el modulo feed ([93de4fc](https://github.com/cvillanueva94/Daily-Trends/commit/93de4fc119b5ee0186a3f7a3ebad2d79de1972e5))
+
 ### [0.0.3](https://github.com/cvillanueva94/Daily-Trends/compare/v0.0.2...v0.0.3) (2023-10-07)
 
 
