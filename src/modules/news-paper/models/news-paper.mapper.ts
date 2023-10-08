@@ -11,8 +11,8 @@ export class NewsPaperMapper extends CrudMapper<NewsPaperDocument, NewsPaperDto,
      * @return {NewsPaperDto} The converted NewsPaperDto object.
      */
     DocumentToDto(newsPaperDocument: NewsPaperDocument): NewsPaperDto {
-        const {id, name, url, createdAt, updatedAt} = newsPaperDocument
-        const dto = new NewsPaperDto(name, url, id, createdAt, updatedAt);
+        const {id, name, url, articleSection, imageSection, videoSection, urlSection, titleClass, descriptionClass, createdAt, updatedAt} = newsPaperDocument
+        const dto = new NewsPaperDto(name, url, articleSection, imageSection, videoSection, urlSection, titleClass, descriptionClass, id, createdAt, updatedAt);
         return dto
     }
 
@@ -27,6 +27,15 @@ export class NewsPaperMapper extends CrudMapper<NewsPaperDocument, NewsPaperDto,
 
         newsPaper.name = newsPaperDto.name;
         newsPaper.url = newsPaperDto.url;
+        newsPaper.articleSection = newsPaperDto.articleSection;
+        newsPaper.imageSection = newsPaperDto.imageSection;
+        newsPaper.videoSection = newsPaperDto.videoSection;
+        newsPaper.urlSection = newsPaperDto.urlSection;
+        newsPaper.titleClass = newsPaperDto.titleClass;
+        newsPaper.descriptionClass = newsPaperDto.descriptionClass;
+        newsPaper.createdAt = newsPaperDto.createdAt || new Date();
+        newsPaper.updatedAt = newsPaperDto.updatedAt || new Date();
+
         return newsPaper;        
     }
 
@@ -43,6 +52,14 @@ export class NewsPaperMapper extends CrudMapper<NewsPaperDocument, NewsPaperDto,
         newsPaper.id = updateNewsPaperDto.id
         newsPaper.name = updateNewsPaperDto.name || originalNewsPaper.name;
         newsPaper.url = updateNewsPaperDto.url || originalNewsPaper.url;
+        newsPaper.articleSection = updateNewsPaperDto.articleSection || originalNewsPaper.articleSection;
+        newsPaper.imageSection = updateNewsPaperDto.imageSection || originalNewsPaper.imageSection;
+        newsPaper.videoSection = updateNewsPaperDto.videoSection || originalNewsPaper.videoSection;
+        newsPaper.urlSection = updateNewsPaperDto.urlSection || originalNewsPaper.urlSection;
+        newsPaper.titleClass = updateNewsPaperDto.titleClass || originalNewsPaper.titleClass;
+        newsPaper.descriptionClass = updateNewsPaperDto.descriptionClass || originalNewsPaper.descriptionClass;
+        newsPaper.createdAt = originalNewsPaper.createdAt;
+        newsPaper.updatedAt = updateNewsPaperDto.updatedAt || new Date();
 
         return newsPaper;
         

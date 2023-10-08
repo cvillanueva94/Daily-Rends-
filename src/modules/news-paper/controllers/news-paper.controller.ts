@@ -15,8 +15,8 @@ export class NewsPaperController implements ICRUDController {
 	async list(req: Request, res: Response): Promise<void> {
 		try {
 			const pagination: PaginationDto = {
-				limit: 10, 
-				offset: 0
+				limit: Number(req.query.limit  || 10 ), 
+				offset: Number(req.query.offset || 0)
 			}
 			const payload = await this.newsPaperService.list(pagination)
 			res.status(httpStatus.OK).send(payload);

@@ -11,7 +11,9 @@ implements ICRUDRepository<ModelType> {
     constructor(private modelInstance: Model<ModelType>) {}
 
     async findAll(pagination: PaginationDto): Promise<ModelType[]> {
-        const dto = await this.modelInstance.find().exec();
+        const dto = await this.modelInstance.find(pagination.filter || {})
+        .skip(pagination.offset)
+        .limit(pagination.limit).exec();
         return dto;
     }
 

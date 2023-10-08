@@ -1,22 +1,25 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-
 import { ICRUDController } from '../../../shared/interfaces/ICRUDController';
 import { FeedService } from '../services/feed.service';
 import { PaginationDto } from '../../../shared/dtos/pagination.dto';
 import { UpdateFeedDto } from '../dtos/update-feed.dto';
 import { GenericError } from '../../../shared/errors/genericerror';
 import { ErrorHelper } from '../../../shared/errors/errorhelper';
+import { ScraperService } from '../services/scraper.service';
 
-
+// TODO: Crear una clase CRUDController en el shared
 export class FeedController implements ICRUDController {
+	
 	feedServices: FeedService = new FeedService();
+	scraperService: ScraperService = new ScraperService()
 
 	async list(req: Request, res: Response): Promise<void> {
 		try {
 			const pagination: PaginationDto = {
-				limit: 10, 
-				offset: 0
+				limit: Number(req.query.limit  || 10 ), 
+				offset: Number(req.query.offset || 0),
+				filter: Object(req.query.filter)
 			}
 			const payload = await this.feedServices.list(pagination)
 			res.status(httpStatus.OK).send(payload);
@@ -38,8 +41,8 @@ export class FeedController implements ICRUDController {
 
 	async update(req: Request, res: Response): Promise<void> {
 		try {
-			const {title, description, url} = req.body
-			const updateFeedDto:UpdateFeedDto = new UpdateFeedDto(req.params.id, title, description, url);
+			const {title, description, news} = req.body
+			const updateFeedDto:UpdateFeedDto = new UpdateFeedDto(req.params.id, title, description, news);
 			await this.feedServices.update(updateFeedDto)
 			res.status(httpStatus.NO_CONTENT).send();
 		} catch(e) {
@@ -66,5 +69,10 @@ export class FeedController implements ICRUDController {
 			const error: GenericError = ErrorHelper.processError(e);
 			res.status(error.statusCode).send(error.message);
 		}
+	}
+
+	async myFeed(req: Request, res: Response): Promise<void> {
+		const payload = await this.feedServices.myFeed()
+		res.status(httpStatus.OK).send(payload);
 	}
 }
