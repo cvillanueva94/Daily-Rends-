@@ -14,6 +14,8 @@ export class UpdateNewsPaperDto implements ICRUDDto {
     titleClass: string | undefined;
     descriptionClass: string | undefined;
 
+    updatedAt?: Date;
+
         
     constructor(id: string, name?: string, url?: string, articleSection?: string, imageSection?: string, videoSection?: string, urlSection?: string, titleClass?: string, descriptionClass?: string){
         this.id = id ;
@@ -25,5 +27,6 @@ export class UpdateNewsPaperDto implements ICRUDDto {
         this.urlSection = urlSection;
         this.titleClass = titleClass;
         this.descriptionClass = descriptionClass;
+        this.updatedAt = new Date();
     }
 }

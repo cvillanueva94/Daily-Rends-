@@ -26,7 +26,8 @@ const NewsPaperSchema = new Schema<NewsPaperDocument>({
 
   titleClass: { type: String, required: true },
   descriptionClass: { type: String, required: true },
-
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 export default model<NewsPaperDocument>('NewsPaper', NewsPaperSchema);

@@ -15,7 +15,9 @@ const feedSchema = new Schema<FeedDocument>({
   title: { type: String, required: true },
   description: { type: String, required: true },
   url: { type: String, required: true, unique: true },
-  news: { type: [NewsSchema], default: [], required: true }
+  news: { type: [NewsSchema], default: [], required: true },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 export default model<FeedDocument>('Feed', feedSchema);

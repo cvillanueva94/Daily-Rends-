@@ -33,6 +33,9 @@ export class FeedMapper implements ICRUDMapper<
         feed.description = feedDto.description;
         feed.url = feedDto.url;
         feed.news = feedDto.news;
+        feed.createdAt = feedDto.createdAt || new Date();
+        feed.updatedAt = feedDto.updatedAt || new Date();
+
         return feed;
         
     }
@@ -52,6 +55,8 @@ export class FeedMapper implements ICRUDMapper<
         feed.description = feedDto.description || originalFeed.description;
         feed.url = feedDto.url || originalFeed.url;
         feed.news = feedDto.news || originalFeed.news;
+        feed.createdAt = originalFeed.createdAt;
+        feed.updatedAt = feedDto.updatedAt || new Date();
 
         return feed;   
     }

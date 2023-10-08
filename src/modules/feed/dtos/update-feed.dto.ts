@@ -6,6 +6,7 @@ export class UpdateFeedDto extends UpdateCrudDto {
     description: string | undefined;
     url: string | undefined;
     news: [NewsDocument] | undefined
+    updatedAt?: Date;
         
     constructor(id: string, title?: string, description?: string, url?: string, news?: [NewsDocument]){ 
         super(id);
@@ -13,5 +14,6 @@ export class UpdateFeedDto extends UpdateCrudDto {
         this.description = description;
         this.url = url;
         this.news = news 
+        this.updatedAt = new Date();
     }
 }

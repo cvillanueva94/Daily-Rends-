@@ -33,6 +33,8 @@ export class NewsPaperMapper extends CrudMapper<NewsPaperDocument, NewsPaperDto,
         newsPaper.urlSection = newsPaperDto.urlSection;
         newsPaper.titleClass = newsPaperDto.titleClass;
         newsPaper.descriptionClass = newsPaperDto.descriptionClass;
+        newsPaper.createdAt = newsPaperDto.createdAt || new Date();
+        newsPaper.updatedAt = newsPaperDto.updatedAt || new Date();
 
         return newsPaper;        
     }
@@ -56,6 +58,8 @@ export class NewsPaperMapper extends CrudMapper<NewsPaperDocument, NewsPaperDto,
         newsPaper.urlSection = updateNewsPaperDto.urlSection || originalNewsPaper.urlSection;
         newsPaper.titleClass = updateNewsPaperDto.titleClass || originalNewsPaper.titleClass;
         newsPaper.descriptionClass = updateNewsPaperDto.descriptionClass || originalNewsPaper.descriptionClass;
+        newsPaper.createdAt = originalNewsPaper.createdAt;
+        newsPaper.updatedAt = updateNewsPaperDto.updatedAt || new Date();
 
         return newsPaper;
         
