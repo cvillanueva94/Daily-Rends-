@@ -19,6 +19,7 @@ export class FeedService extends CrudServices<FeedDocument, FeedDto, UpdateFeedD
 		const news: NewsDocument[] = await this.scraperService.scrapAllNewsPaper()
 		// const newNews: [NewsDocument] = news.map((item:NewsDocument)=>item)/
 
+		// TODO: refactorizar estos valores por defecto
 		const DEAULT_TITLE = `Noticias de hoy ${new Date().toLocaleDateString()}`;
 		const DEAULT_DESCRIPTION = `Noticias de hoy ${new Date().toLocaleDateString()}`;
 		const URL_DEFAULT = 'https://www.eluniversal.com.mx/';

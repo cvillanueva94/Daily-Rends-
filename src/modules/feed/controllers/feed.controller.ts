@@ -8,6 +8,7 @@ import { GenericError } from '../../../shared/errors/genericerror';
 import { ErrorHelper } from '../../../shared/errors/errorhelper';
 import { ScraperService } from '../services/scraper.service';
 
+// TODO: Crear una clase CRUDController en el shared
 export class FeedController implements ICRUDController {
 	
 	feedServices: FeedService = new FeedService();
