@@ -33,7 +33,7 @@ export class ScraperService {
 		const allNewsPaper = await this.newsPaperService.list({ limit: 0, offset: 0 });
         for (const newsPaper of allNewsPaper) {
             let news = await this.scrap(newsPaper.id)
-            result = result.concat(news.slice(0, this.DEFAULT_TOTAL_NEWS))
+            result = result.concat(news.slice(0, this.DEFAULT_TOTAL_NEWS).map((item:any)=>({...item, NewsPaperName: newsPaper.name})))
         }
         return result
 	}

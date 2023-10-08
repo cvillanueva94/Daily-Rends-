@@ -17,8 +17,9 @@ export class FeedController implements ICRUDController {
 	async list(req: Request, res: Response): Promise<void> {
 		try {
 			const pagination: PaginationDto = {
-				limit: 10, 
-				offset: 0
+				limit: Number(req.query.limit  || 10 ), 
+				offset: Number(req.query.offset || 0),
+				filter: Object(req.query.filter)
 			}
 			const payload = await this.feedServices.list(pagination)
 			res.status(httpStatus.OK).send(payload);
@@ -40,8 +41,8 @@ export class FeedController implements ICRUDController {
 
 	async update(req: Request, res: Response): Promise<void> {
 		try {
-			const {title, description, url, news} = req.body
-			const updateFeedDto:UpdateFeedDto = new UpdateFeedDto(req.params.id, title, description, url, news);
+			const {title, description, news} = req.body
+			const updateFeedDto:UpdateFeedDto = new UpdateFeedDto(req.params.id, title, description, news);
 			await this.feedServices.update(updateFeedDto)
 			res.status(httpStatus.NO_CONTENT).send();
 		} catch(e) {

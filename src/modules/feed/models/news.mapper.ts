@@ -16,6 +16,7 @@ export class NewsMapper {
         
         news.title = newsDto.title;
         news.description = newsDto.description;
+        news.NewsPaperName = newsDto.NewsPaperName;
         news.url = newsDto.url;
         news.image = newsDto.image;
         news.video = newsDto.video;
