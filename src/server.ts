@@ -31,6 +31,10 @@ export class Server {
 		router.use(errorHandler());
 		this.express.use(router);
 
+		router.get("/", (req: Request, res: Response) => {
+			res.status(httpStatus.OK).send("¡Hola, mundo!");
+		})
+
 		connection();
 		registerRoutes(router);
 
