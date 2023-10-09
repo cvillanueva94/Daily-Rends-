@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "ee0def78-1abd-4e69-8bef-e79e5cea96f0",
+		"name": "Daily-Trends",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14788108"
+	},
+	"item": [
+		{
+			"name": "Feed",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-feed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feed/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"asd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feed/65212fa06221bb36c1de6abc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed",
+								"65212fa06221bb36c1de6abc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feed/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feed",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News Paper",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news-paper",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news-paper"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news-paper/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news-paper",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news-paper/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news-paper",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news-paper",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news-paper"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news-paper/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news-paper",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scraper",
+			"item": [
+				{
+					"name": "scrap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/scrap/6521c296bba63947ffc9e475",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"scrap",
+								"6521c296bba63947ffc9e475"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}
