@@ -1,6 +1,6 @@
 {
   "name": "Daily-Trends",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Un API (DailyTrends) que exponga un feed de noticias. Este feed es un agregador de noticias de diferentes periódicos. DailyTrends es un periódico que une las portadas de los periódicos número uno.",
   "repository": "git@github.com:cvillanueva94/Daily-Trends.git",
   "author": "Carlos Villanueva <krlosvilla101994@gmail.com>",
@@ -14,7 +14,6 @@
     "test": "NODE_ENV=test jest --testTimeout=10000 --runInBand --coverage",
     "build": "tsc"
   },
-  
   "dependencies": {
     "@types/morgan": "^1.9.6",
     "body-parser": "^1.20.2",
