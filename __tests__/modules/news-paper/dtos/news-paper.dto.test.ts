@@ -1,6 +1,6 @@
 import { NewsPaperDto } from '../../../../src/modules/news-paper/dtos/news-paper.dto';
 
-describe('Pruebas E2E para mi aplicación Express', () => {
+describe('Pruebas a NewsPaperDto', () => {
     const id: string = 'id'
     const name: string= 'name'
     const url: string = 'url'
