@@ -74,8 +74,10 @@ A continuación se detallan los endpoints disponibles en esta API:
 ```
 
 ## Dibujo de la arquitectura
-```flowchart TD
-    A[Controller] --> B[Service]
-    B --> C[Repository]
-    C --> D[(Database)]
+
+```mermaid
+    flowchart TD
+        A[Controller] --> B[Service]
+        B --> C[Repository]
+        C --> D[(Database)]
 ```
