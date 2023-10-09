@@ -11,7 +11,8 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "release": "scripts/standard-release.sh main",
-    "test": "NODE_ENV=test jest --testTimeout=10000 --runInBand --coverage"
+    "test": "NODE_ENV=test jest --testTimeout=10000 --runInBand --coverage",
+    "build": "tsc"
   },
   
   "dependencies": {
