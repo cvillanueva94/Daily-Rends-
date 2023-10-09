@@ -1,4 +1,5 @@
 import mongoose, { ConnectOptions } from 'mongoose';
+import Logger from '../lib/logger';
 
 interface CustomConnectOptions extends ConnectOptions {
   useUnifiedTopology: boolean;
@@ -7,7 +8,7 @@ interface CustomConnectOptions extends ConnectOptions {
 
 const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/daily-trends';
 
-export function connection(){
+export function connection(): void {
   mongoose.connect(DB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
@@ -17,12 +18,12 @@ export function connection(){
 
   db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
   db.once('open', () => {
-    console.log('Conexión exitosa a MongoDB');
+    Logger.info('Conexión exitosa a MongoDB');
   });
 
   // Manejar un evento de cierre de conexión
   db.on('close', () => {
-    console.log('Conexión cerrada a MongoDB');
+    Logger.info('Conexión exitosa a MongoDB');
   });
 }
 
